@@ -1,30 +1,28 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
-  var countOpen = 0;
-  var countClose = 0;
-  var countLine = 0;
-  for (var i=0; i<str.length; i++) {
-  	if (str[i] === '(') {
-  		countOpen++;
-  		}
-  	if (str[i] === ')') {
-  		countClose++;
-  		}
-	if (str[i] === '[') {
-  		countOpen++;
-  		}
-  	if (str[i] === ']') {
-  		countClose++;
-  		}
-  		if (str[i] === '{') {
-  		countOpen++;
-  		}
-  	if (str[i] === '}') {
-  		countClose++;
-  		}
-  	if (str[i] === '|') {
-  		countLine++;
-  	}
+ var answer = 0;
+ var result;
+for (var i=0; i<bracketsConfig.length; i++) {
+  if (brackets(bracketsConfig[i][0], bracketsConfig[i][1])) {
+    answer++;
   }
-    	return (countOpen === countClose) || (countLine%2==0);
+}
+
+if (bracketsConfig.length == answer) {
+  return true;
+} else return false;
+
+  function brackets (first, last) {
+  for (var i=0; i<str.length; i++) {
+    if (str[i] === first) {
+      count = false;
+      for (var j=i; j<str.length; j++) {
+        if (str[j] === last) {
+          count = true;      
+          break;
+        } 
+      }
+
+      }
+} return count;
+}
 }
